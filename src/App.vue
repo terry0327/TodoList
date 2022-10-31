@@ -1,5 +1,25 @@
 <template>
-  <div id="root">
+  <div>
+    <div class="row">
+      <Banner/>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <!-- 路由切換 active-class:切換高亮樣式 to:路由路徑-->
+          <router-link class="list-group-item" active-class="active" to="/about">About</router-link>
+          <router-link class="list-group-item" active-class="active" to="/home">Home</router-link>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <!-- 指定組件呈現位置 -->
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="todo-container">
       <div class="todo-wrap">
         <Top @addTodo="addTodo"/>
@@ -15,13 +35,15 @@
   import Top from './components/Top.vue'
   import List from './components/List.vue'
   import Bottom from './components/Bottom.vue'
+  import Banner from './components/Banner'
 
   export default {
     name:"App",
     components: { 
       Top,
       List,
-      Bottom
+      Bottom,
+      Banner
     },
     data() {
       return {
